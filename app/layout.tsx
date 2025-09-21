@@ -19,9 +19,14 @@ const lato = Lato({
 })
 
 export const metadata: Metadata = {
-  title: 'Padre Diego Fares SJ - Legado y Biografía',
-  description: 'Created with Next.js and Tailwind CSS',
+  title: 'Padre Diego Fares SJ',
+  description: 'Padre Diego Fares SJ',
   generator: 'Next.js',
+  icons: {
+    icon: '/images/logo.png',
+    shortcut: '/images/logo.svg',
+    apple: '/images/logo.svg',
+  },
 }
 
 export default function RootLayout({

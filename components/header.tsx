@@ -22,7 +22,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3">
             <div className="w-10 h-10">
               <Image 
-                src="/logo.svg" 
+                src="images/logo.svg" 
                 alt="Logo Padre Diego Fares SJ" 
                 width={40} 
                 height={40}
@@ -39,7 +39,7 @@ export default function Header() {
               className={`transition-colors ${
                 pathname === '/' ? 'font-bold' : 'text-gray-600 hover:opacity-75'
               }`}
-              style={pathname === '/' ? {color: '#5D5D5D'} : {}}
+              style={pathname === '/' ? {color: '#334155'} : {}}
             >
               Inicio
             </Link>
@@ -48,7 +48,7 @@ export default function Header() {
               className={`transition-colors ${
                 pathname === '/biografia' ? 'font-bold' : 'text-gray-600 hover:opacity-75'
               }`}
-              style={pathname === '/biografia' ? {color: '#5D5D5D'} : {}}
+              style={pathname === '/biografia' ? {color: '#334155'} : {}}
             >
               Biografía
             </Link>
@@ -57,7 +57,7 @@ export default function Header() {
               className={`transition-colors ${
                 pathname === '/documentos' ? 'font-bold' : 'text-gray-600 hover:opacity-75'
               }`}
-              style={pathname === '/documentos' ? {color: '#5D5D5D'} : {}}
+              style={pathname === '/documentos' ? {color: '#334155'} : {}}
             >
               Documentos
             </Link>
@@ -86,7 +86,7 @@ export default function Header() {
                 className={`transition-colors py-2 ${
                   pathname === '/' ? 'font-bold' : 'text-gray-600 hover:opacity-75'
                 }`}
-                style={pathname === '/' ? {color: '#5D5D5D'} : {}}
+                style={pathname === '/' ? {color: '#334155'} : {}}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Inicio
@@ -96,7 +96,7 @@ export default function Header() {
                 className={`transition-colors py-2 ${
                   pathname === '/biografia' ? 'font-bold' : 'text-gray-600 hover:opacity-75'
                 }`}
-                style={pathname === '/biografia' ? {color: '#5D5D5D'} : {}}
+                style={pathname === '/biografia' ? {color: '#334155'} : {}}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Biografía
@@ -106,7 +106,7 @@ export default function Header() {
                 className={`transition-colors py-2 ${
                   pathname === '/documentos' ? 'font-bold' : 'text-gray-600 hover:opacity-75'
                 }`}
-                style={pathname === '/documentos' ? {color: '#5D5D5D'} : {}}
+                style={pathname === '/documentos' ? {color: '#334155'} : {}}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Documentos
