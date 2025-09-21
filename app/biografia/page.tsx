@@ -26,7 +26,7 @@ export default function BiografiaPage() {
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
               <div className="aspect-[4/3] bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center">
                 <img
-                  src="/images/biografia.png"
+                  src="/images/carousel4.jpg"
                   alt="P. Diego Fares SJ"
                   className="w-full h-full object-cover"
                 />
