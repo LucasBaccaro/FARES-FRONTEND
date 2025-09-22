@@ -125,7 +125,7 @@ export default function BiografiaPage() {
 
               <div className="aspect-square bg-white rounded-lg shadow-sm overflow-hidden">
                 <img
-                  src="/images/carousel.jpg"
+                  src="/images/carousel.png"
                   alt="P. Diego Fares SJ"
                   className="w-full h-full object-cover"
                 />
