@@ -150,6 +150,21 @@ export default function DocumentosPage() {
     setActiveCategory,
   } = useSearch() // Add your API endpoint here when ready: useSearch("/api/search")
 
+  // Function to highlight search terms in text
+  const highlightText = (text: string, searchQuery: string) => {
+    if (!searchQuery || searchQuery === "*") return text
+
+    const terms = searchQuery.split(' ').filter(term => term.length > 0)
+    let highlightedText = text
+
+    terms.forEach(term => {
+      const regex = new RegExp(`(${term})`, 'gi')
+      highlightedText = highlightedText.replace(regex, '<mark class="bg-yellow-200 text-yellow-900 px-1 rounded">$1</mark>')
+    })
+
+    return highlightedText
+  }
+
   return (
     <div className="min-h-screen" style={{backgroundColor: '#F7F2EF'}}>
       <Header />
@@ -227,8 +242,14 @@ export default function DocumentosPage() {
                               </div>
                             </div>
                             <div className="flex-1 min-w-0 overflow-hidden">
-                              <h3 className="title-playfair-small text-slate-700 line-clamp-2 break-words min-w-0 mb-2">{doc.title}</h3>
-                              <p className="text-slate-600 text-sm leading-relaxed line-clamp-1 break-words">{doc.description}</p>
+                              <h3
+                                className="title-playfair-small text-slate-700 line-clamp-2 break-words min-w-0 mb-2"
+                                dangerouslySetInnerHTML={{ __html: highlightText(doc.title, query) }}
+                              />
+                              <p
+                                className="text-slate-600 text-sm leading-relaxed line-clamp-1 break-words"
+                                dangerouslySetInnerHTML={{ __html: highlightText(doc.description, query) }}
+                              />
                             </div>
                           </div>
                           <div className="flex flex-col sm:flex-row gap-2 lg:ml-4 lg:flex-shrink-0">

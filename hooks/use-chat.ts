@@ -51,6 +51,25 @@ export function useChat(apiEndpoint?: string) {
     try {
       const response = await apiClient.chat(userMessage.content)
 
+      // Detailed logging for analysis
+      console.log("=== BACKEND RESPONSE ANALYSIS ===")
+      console.log("Full response:", JSON.stringify(response, null, 2))
+      console.log("Assistant message:", response.assistant_message)
+      console.log("Citations count:", response.citations?.length || 0)
+      console.log("Citations details:")
+      response.citations?.forEach((citation, index) => {
+        console.log(`Citation ${index + 1}:`, {
+          file_id: citation.file_id,
+          file_name: citation.file_name,
+          quote: citation.quote,
+          text: citation.text,
+          download_link: citation.download_link,
+          quote_length: citation.quote?.length || 0,
+          text_length: citation.text?.length || 0
+        })
+      })
+      console.log("=== END BACKEND RESPONSE ===")
+
       const assistantMessage: ChatMessage = {
         id: `assistant-${Date.now()}`,
         content: response.assistant_message,

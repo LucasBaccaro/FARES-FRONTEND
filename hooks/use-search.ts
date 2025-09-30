@@ -106,19 +106,63 @@ export function useSearch(apiEndpoint?: string) {
     return 'Archivo'
   }
 
+  // Load all documents for the selected category
+  const loadCategoryDocuments = async () => {
+    try {
+      setState((prev) => ({ ...prev, loading: true, error: null }))
+
+      const activeCategory = state.categories.find(c => c.active)
+      const carpeta = activeCategory?.id
+
+      // Use "*" as query to get all documents in the category
+      const response = await apiClient.searchDrive("*", carpeta)
+
+      // Convert DriveFile to SearchResult
+      const results: SearchResult[] = response.archivos.map((file: DriveFile) => ({
+        id: file.id,
+        title: file.name,
+        description: `Archivo ${file.mime_type.includes('pdf') ? 'PDF' : file.mime_type.includes('audio') ? 'de Audio' : file.mime_type.includes('video') ? 'de Video' : 'de Texto'}`,
+        type: getFileType(file.mime_type),
+        category: carpeta || activeCategory?.id || "articulos",
+        viewLink: file.view_link,
+        downloadLink: file.download_link,
+        mimeType: file.mime_type,
+        size: file.size,
+        modifiedTime: file.modified_time
+      }))
+
+      setState((prev) => ({
+        ...prev,
+        results,
+        loading: false
+      }))
+    } catch (error) {
+      setState((prev) => ({
+        ...prev,
+        error: error instanceof Error ? error.message : "Unknown error",
+        loading: false
+      }))
+    }
+  }
+
   // Auto-search when query or category changes
   useEffect(() => {
     const debounce = setTimeout(() => {
       if (state.query.trim().length > 0) {
         search()
       } else {
-        // Clear results when query is empty
-        setState((prev) => ({ ...prev, results: [], loading: false, error: null }))
+        // When query is empty, load all documents for the selected category
+        loadCategoryDocuments()
       }
     }, 300)
 
     return () => clearTimeout(debounce)
   }, [state.query, state.categories])
+
+  // Load documents when component mounts
+  useEffect(() => {
+    loadCategoryDocuments()
+  }, [])
 
   return {
     ...state,

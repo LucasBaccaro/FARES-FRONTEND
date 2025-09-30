@@ -1,5 +1,6 @@
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import BiografiaGallery from "@/components/biografia-gallery"
 
 export default function BiografiaPage() {
   return (
@@ -90,55 +91,7 @@ export default function BiografiaPage() {
           <div className="max-w-6xl mx-auto">
             <h2 className="title-playfair-medium text-center mb-8 text-slate-700">Galería de Recuerdos</h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="aspect-square bg-white rounded-lg shadow-sm overflow-hidden">
-                <img
-                  src="/images/biografia.png"
-                  alt="P. Diego Fares SJ"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="aspect-square bg-white rounded-lg shadow-sm overflow-hidden">
-                <img
-                  src="/images/carousel1.png"
-                  alt="P. Diego Fares SJ con el Papa Francisco"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="aspect-square bg-white rounded-lg shadow-sm overflow-hidden">
-                <img
-                  src="/images/carousel2.png"
-                  alt="P. Diego Fares SJ con el Papa Francisco"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="aspect-square bg-white rounded-lg shadow-sm overflow-hidden">
-                <img
-                  src="/images/carousel3.png"
-                  alt="P. Diego Fares SJ con el Papa Francisco"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="aspect-square bg-white rounded-lg shadow-sm overflow-hidden">
-                <img
-                  src="/images/carousel.png"
-                  alt="P. Diego Fares SJ"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="aspect-square bg-white rounded-lg shadow-sm overflow-hidden">
-                <img
-                  src="/images/logo.svg"
-                  alt="Logo P. Diego Fares SJ"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
+            <BiografiaGallery />
           </div>
         </section>
       </main>
