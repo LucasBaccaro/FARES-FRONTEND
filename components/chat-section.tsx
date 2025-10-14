@@ -112,7 +112,7 @@ export default function ChatSection() {
                   <div className="flex justify-start">
                     <div className="bg-gray-100 text-slate-700 rounded-lg p-3 text-sm flex items-center gap-2">
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      Pensando...
+                      📚 “Procesando la información disponible. Esto puede tomar unos segundos...”
                     </div>
                   </div>
                 )}
