@@ -85,7 +85,7 @@ export default function ChatSection() {
                                 <div key={index} className="bg-white rounded p-2 border">
                                   <div className="flex items-start justify-between gap-2">
                                     <div className="flex-1 min-w-0">
-                                      <p className="text-xs font-medium text-slate-700 truncate">{citation.file_name}</p>
+                                      <p className="text-xs font-medium text-slate-700 truncate">{citation.title}</p>
                                       {citation.quote && citation.quote.trim() !== '' && (
                                         <p className="text-xs text-slate-600 mt-1 italic line-clamp-2">{citation.quote}</p>
                                       )}

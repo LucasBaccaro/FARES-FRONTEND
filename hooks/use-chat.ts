@@ -61,6 +61,7 @@ export function useChat(apiEndpoint?: string) {
         console.log(`Citation ${index + 1}:`, {
           file_id: citation.file_id,
           file_name: citation.file_name,
+          title: citation.title, // Log the new title field
           quote: citation.quote,
           text: citation.text,
           download_link: citation.download_link,

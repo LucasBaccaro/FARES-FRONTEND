@@ -10,6 +10,7 @@ export interface Citation {
   quote: string
   text: string
   download_link: string
+  title: string
 }
 
 export interface SearchResponse {
