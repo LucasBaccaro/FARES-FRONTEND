@@ -51,14 +51,16 @@ export function useSearch(apiEndpoint?: string) {
   }
 
   const setActiveCategory = (categoryId: string) => {
-    setState((prev) => ({
+    setState(prev => ({
       ...prev,
-      categories: prev.categories.map((cat) => ({
+      query: "",
+      results: [],
+      categories: prev.categories.map(cat => ({
         ...cat,
         active: cat.id === categoryId,
       })),
-    }))
-  }
+    }));
+  };
 
   const search = async () => {
     try {
